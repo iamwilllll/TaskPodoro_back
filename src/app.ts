@@ -1,5 +1,6 @@
 import express from 'express';
 import Server from './config/server.js';
+import appRouter from './routes/appRouter.js';
 
 (async () => {
     await main();
@@ -11,4 +12,6 @@ async function main() {
     //* middlewares
     server.use(express.json());
 
+    //* routes
+    server.use(appRouter);
 }
