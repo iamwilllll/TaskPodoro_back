@@ -12,6 +12,7 @@ export const registerMiddlewares = [
         .withMessage('Repeat password is required')
         .custom((value, { req }) => {
             if (value !== req.body.password) return 'The passwords do not match';
+            return true
         }),
 
     handleInputErrors,
