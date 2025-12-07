@@ -16,7 +16,7 @@ export interface UserDocument extends Document {
 
     isVerified: boolean;
     verificationOTPCode?: string;
-    VerificationOTPCodeExpirationTime?: Date;
+    verificationOTPCodeExpirationTime?: Date;
 
     resetPasswordOTPCode?: string;
     resetPasswordOTPCodeExpirationTime?: Date;

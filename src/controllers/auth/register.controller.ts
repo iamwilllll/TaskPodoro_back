@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import UserModel from '../models/user.model.js';
-import generateOTPCode from '../utils/generateOTPCode.js';
-import sendEmail from '../services/sendEmail.service.js';
-import hashPassword from '../utils/hashPassword.js';
+import UserModel from '../../models/user.model.js';
+import generateOTPCode from '../../utils/generateOTPCode.js';
+import sendEmail from '../../services/sendEmail.service.js';
+import hashPassword from '../../utils/hashPassword.js';
 import path from 'node:path';
 import fs from 'node:fs';
-import { HttpError } from '../errors/HttpError.js';
+import { HttpError } from '../../errors/HttpError.js';
 
 export async function registerController(req: Request, res: Response) {
     try {
@@ -16,12 +16,12 @@ export async function registerController(req: Request, res: Response) {
         const OTPCode = generateOTPCode();
 
         const __dirname = import.meta.dirname;
-        const emailTemplatePath = path.join(__dirname, '../email_templates/VerifyAccount.html');
+        const emailTemplatePath = path.join(__dirname, '../../email_templates/VerifyAccount.html');
         const verifyAccountEmailTemplate = fs.readFileSync(emailTemplatePath, 'utf-8');
         const html = verifyAccountEmailTemplate.replace('*verificationCode*', OTPCode);
 
         newUser.verificationOTPCode = OTPCode;
-        newUser.VerificationOTPCodeExpirationTime = new Date(Date.now() + 10 * 60 * 1000);
+        newUser.verificationOTPCodeExpirationTime = new Date(Date.now() + 10 * 60 * 1000);
 
         const createdUser = await newUser.save();
         const { success, message } = await sendEmail({

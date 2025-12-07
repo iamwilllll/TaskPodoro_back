@@ -10,7 +10,7 @@ const UserSchema = new Schema<UserDocument>({
 
     isVerified: { type: Boolean, required: true, default: false },
     verificationOTPCode: { type: String, required: false, trim: true },
-    VerificationOTPCodeExpirationTime: { type: Date, required: false },
+    verificationOTPCodeExpirationTime: { type: Date, required: false },
 
     resetPasswordOTPCode: { type: String, required: false, trim: true },
     resetPasswordOTPCodeExpirationTime: { type: Date, required: false },
