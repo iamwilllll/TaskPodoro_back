@@ -7,7 +7,7 @@ export type RegisterUserDTO = {
     repeat_password: string;
 };
 
-export interface UserDocument extends Document {
+export interface UserI extends Document {
     name: string;
     last_name: string;
     username: string;
@@ -21,3 +21,5 @@ export interface UserDocument extends Document {
     resetPasswordOTPCode?: string;
     resetPasswordOTPCodeExpirationTime?: Date;
 }
+
+export type UserWithoutPassword = Omit<UserI, 'password'>;

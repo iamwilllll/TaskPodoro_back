@@ -20,6 +20,10 @@ const config = {
         PASS: process.env.SMTP_PASS || '',
         PORT: process.env.SMTP_PORT || 587,
     },
+
+    jwt: {
+        KEY: process.env.JWT_API_KEY || '',
+    },
 };
 
 export default config;

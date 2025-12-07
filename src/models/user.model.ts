@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { UserDocument } from '../types/user.type.js';
+import { UserI } from '../types/user.type.js';
 
-const UserSchema = new Schema<UserDocument>({
+const UserSchema = new Schema<UserI>({
     name: { type: String, required: true, trim: true },
     last_name: { type: String, required: true, trim: true },
     username: { type: String, required: true, trim: true },

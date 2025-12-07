@@ -7,16 +7,14 @@ export async function verifyUserController(req: Request, res: Response) {
         const { email, code } = req.body;
 
         const user = await UserModel.findOne({ email });
-        if (!user) throw new HttpError(409, "User doesn't exist");
-        const expiration = user.verificationOTPCodeExpirationTime;
+        if (!user) throw new HttpError(404, "User doesn't exist");
 
-        if (!expiration) throw new HttpError(400, 'Expiration date missing');
-        if (Date.now() > expiration.getTime()) throw new HttpError(401, 'Code expired');
-        if (user.verificationOTPCode !== code) throw new HttpError(401, 'Code is invalid');
+        if (new Date() > (user.verificationOTPCodeExpirationTime as Date)) throw new HttpError(400, 'Code expired');
+        if (user.verificationOTPCode !== code) throw new HttpError(400, 'Code is invalid');
 
         user.isVerified = true;
         user.verificationOTPCode = '';
-        user.save();
+        await user.save();
 
         res.json({ ok: true, message: 'User was verified successful' });
     } catch (err) {
