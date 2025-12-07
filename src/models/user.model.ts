@@ -3,12 +3,12 @@ import { UserDocument } from '../types/user.type.js';
 
 const UserSchema = new Schema<UserDocument>({
     name: { type: String, required: true, trim: true },
-    last_name: { type: String, required: true, trim: true,  },
+    last_name: { type: String, required: true, trim: true },
     username: { type: String, required: true, trim: true },
-    email: { type: String, required: true, trim: true , unique: true},
+    email: { type: String, required: true, trim: true, unique: true },
     password: { type: String, required: true, trim: true },
 
-    isVerified: { type: Boolean, required: true, default:false},
+    isVerified: { type: Boolean, required: true, default: false },
     verificationOTPCode: { type: String, required: false, trim: true },
     VerificationOTPCodeExpirationTime: { type: Date, required: false },
 
