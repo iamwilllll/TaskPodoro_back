@@ -6,7 +6,8 @@
     "type": "module",
     "scripts": {
         "dev": "nodemon",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "lint": "eslint . --ext .ts"
     },
     "keywords": [],
     "author": "Wilfryn Viloria Rosario",
@@ -14,8 +15,10 @@
     "packageManager": "pnpm@10.24.0",
     "devDependencies": {
         "@eslint/js": "^9.39.1",
+        "@types/bcrypt": "^6.0.0",
         "@types/express": "^5.0.6",
         "@types/node": "^24.10.1",
+        "@types/nodemailer": "^7.0.4",
         "eslint": "^9.39.1",
         "globals": "^16.5.0",
         "nodemon": "^3.1.11",
@@ -24,10 +27,12 @@
         "typescript-eslint": "^8.48.1"
     },
     "dependencies": {
+        "bcrypt": "^6.0.0",
         "colors": "^1.4.0",
         "dotenv": "^17.2.3",
         "express": "^5.2.1",
         "express-validator": "^7.3.1",
-        "mongoose": "^9.0.0"
+        "mongoose": "^9.0.0",
+        "nodemailer": "^7.0.11"
     }
 }

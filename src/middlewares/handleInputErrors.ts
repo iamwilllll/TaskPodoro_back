@@ -5,8 +5,14 @@ export function handleInputErrors(req: Request, res: Response, next: NextFunctio
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        return res.status(400).json(errors.array());
+        return res.status(422).json({
+            ok: false,
+            error: {
+                message: 'Validation failed',
+                code: 'VALIDATION_ERROR',
+                details: errors.mapped(),
+            },
+        });
     }
-
     next();
 }
