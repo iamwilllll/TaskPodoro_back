@@ -25,7 +25,8 @@ export async function loginController(req: Request, res: Response) {
         res.cookie('token', token, {
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
             httpOnly: true,
-            secure: true,
+            secure: config.environment === 'production',
+            sameSite: config.environment === 'production' ? 'none' : 'lax',
         });
 
         res.json({ ok: true, message: 'User was verified successful', data: userWithoutPass });
