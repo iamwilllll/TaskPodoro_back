@@ -1,3 +1,5 @@
+import { Types } from 'mongoose';
+
 export type RegisterUserDTO = {
     name: string;
     last_name: string;
@@ -20,6 +22,8 @@ export interface UserI extends Document {
 
     resetPasswordOTPCode?: string;
     resetPasswordOTPCodeExpirationTime?: Date;
+
+    groups: Types.ObjectId[];
 }
 
 export type UserWithoutPassword = Omit<UserI, 'password'>;

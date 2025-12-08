@@ -1,5 +1,5 @@
 import { HydratedDocument } from 'mongoose';
-import { UserI, UserWithoutPassword } from '../types/user.type.js';
+import { UserI, UserWithoutPassword } from '../shared/types/user.type.js';
 
 export default function getUserWithoutPass(user: HydratedDocument<UserI>): UserWithoutPassword {
     const userObj = user.toObject();

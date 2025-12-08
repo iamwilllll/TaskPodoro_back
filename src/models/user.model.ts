@@ -1,5 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
-import { UserI } from '../types/user.type.js';
+import mongoose, { Schema, Types } from 'mongoose';
+import { UserI } from '../shared/types/user.type.js';
 
 const UserSchema = new Schema<UserI>({
     name: { type: String, required: true, trim: true },
@@ -14,6 +14,8 @@ const UserSchema = new Schema<UserI>({
 
     resetPasswordOTPCode: { type: String, required: false, trim: true },
     resetPasswordOTPCodeExpirationTime: { type: Date, required: false },
+
+    groups: [{ type: Types.ObjectId, ref: 'Groups' }],
 });
 
 const UserModel = mongoose.model('User', UserSchema);
