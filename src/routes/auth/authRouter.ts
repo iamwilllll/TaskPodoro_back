@@ -1,15 +1,34 @@
 import { Router } from 'express';
-import { registerMiddlewares, verifyUserMiddlewares } from '../../middlewares/index.js';
-import { loginController, registerController, verifyUserController } from '../../controllers/index.js';
-import { loginMiddlewares } from '../../middlewares/auth/login.middlewares.js';
-import { logoutController } from '../../controllers/auth/logout.controller.js';
+import {
+    forgotPasswordMiddlewares,
+    loginMiddlewares,
+    registerMiddlewares,
+    verifyUserMiddlewares,
+    verifyPassTokenMiddlewares,
+    resetPasswordMiddlewares,
+} from '../../middlewares/index.js';
+
+import {
+    forgotPassword,
+    loginController,
+    logoutController,
+    registerController,
+    resetPassword,
+    verifyPassTokenController,
+    verifyUserController,
+} from '../../controllers/index.js';
 
 const authRouter: Router = Router();
 
-//* controllers routes
+//* auth controllers routes
 authRouter.post('/register', registerMiddlewares, registerController);
 authRouter.post('/verifyUser', verifyUserMiddlewares, verifyUserController);
 authRouter.post('/login', loginMiddlewares, loginController);
 authRouter.post('/logout', logoutController);
+
+//* password controllers routes
+authRouter.post('/forgotPassword', forgotPasswordMiddlewares, forgotPassword);
+authRouter.post('/verifyPassToken', verifyPassTokenMiddlewares, verifyPassTokenController);
+authRouter.post('/resetPassword', resetPasswordMiddlewares, resetPassword);
 
 export default authRouter;
