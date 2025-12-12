@@ -8,7 +8,7 @@
         "dev": "nodemon",
         "format": "prettier --write .",
         "lint": "eslint . --ext .ts",
-        "build":"tsc"
+        "build": "tsc"
     },
     "keywords": [],
     "author": "Wilfryn Viloria Rosario",

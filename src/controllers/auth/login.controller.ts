@@ -17,10 +17,10 @@ export async function loginController(req: Request, res: Response) {
         if (!areTheSame) throw new HttpError(401, 'Incorrect credentials');
 
         const userWithoutPass = getUserWithoutPass(user);
-        const privateKey = config.jwt.KEY;
+        const publicKey = config.jwt.KEY;
 
-        if (!privateKey) throw new HttpError(500, 'Private key is not available');
-        const token = jwt.sign({ id: user._id }, privateKey, { expiresIn: '1d' });
+        if (!publicKey) throw new HttpError(500, 'Private key is not available');
+        const token = jwt.sign({ id: user._id }, publicKey, { expiresIn: '1d' });
 
         res.cookie('token', token, {
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000),

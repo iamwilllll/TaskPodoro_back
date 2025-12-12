@@ -6,7 +6,7 @@ import {
     verifyUserMiddlewares,
     verifyPassTokenMiddlewares,
     resetPasswordMiddlewares,
-} from '../../middlewares/index.js';
+} from '../middlewares/index.js';
 
 import {
     forgotPassword,
@@ -16,7 +16,7 @@ import {
     resetPassword,
     verifyPassTokenController,
     verifyUserController,
-} from '../../controllers/index.js';
+} from '../controllers/index.js';
 
 const authRouter: Router = Router();
 
