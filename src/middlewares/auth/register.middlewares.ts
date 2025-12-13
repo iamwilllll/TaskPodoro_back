@@ -12,6 +12,7 @@ export const registerMiddlewares = [
         .withMessage('Repeat password is required')
         .custom((value, { req }) => {
             if (value !== req.body.password) throw new Error('The passwords do not match');
+            if (req.body.password < 8) throw new Error('The passwords is too short');
             return true;
         }),
 
