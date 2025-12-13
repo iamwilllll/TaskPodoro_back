@@ -24,6 +24,11 @@ const config = {
     jwt: {
         KEY: process.env.JWT_API_KEY || '',
     },
+
+    cloudinary: {
+        API_KEY: process.env.CLOUDINARY_KEY || '',
+        API_SECRET: process.env.CLOUDINARY_SECRET || '',
+    },
 };
 
 export default config;

@@ -5,4 +5,5 @@ export interface GroupI extends Document {
     description: string;
     image: string;
     tasks: Types.ObjectId[];
+    user: Types.ObjectId;
 }

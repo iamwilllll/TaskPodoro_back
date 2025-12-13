@@ -4,3 +4,4 @@ export * from './login.middlewares.js';
 export * from './forgotPassword.middlewares.js';
 export * from './verifyPassToken.middlewares.js';
 export * from './resetPassword.middlewares.js';
+export * from './verifyToken.middlewares.js';
