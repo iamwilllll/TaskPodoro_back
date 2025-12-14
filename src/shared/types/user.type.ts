@@ -2,7 +2,6 @@ import { Types } from 'mongoose';
 
 export type RegisterUserDTO = {
     name: string;
-    last_name: string;
     username: string;
     email: string;
     password: string;
@@ -11,7 +10,6 @@ export type RegisterUserDTO = {
 
 export interface UserI extends Document {
     name: string;
-    last_name: string;
     username: string;
     email: string;
     password: string;

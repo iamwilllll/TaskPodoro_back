@@ -5,12 +5,12 @@ import getUserWithoutPass from '../../utils/getUserWithoutPass.js';
 
 export async function getUserController(req: Request, res: Response) {
     try {
-        const foundUser = await UserModel.findOne({ _id: req.userId });
+        const foundUser = await UserModel.findOne({ _id: req.userId }).populate('groups');
         if (!foundUser) throw new HttpError(409, 'User not fount');
 
         res.json({ ok: true, message: 'User found successful', data: getUserWithoutPass(foundUser) });
     } catch (err) {
         const error = err as HttpError;
-        return res.status(error.statusCode).json({ ok: false, message: error.message || 'Internal server error' });
+        return res.status(error.statusCode || 500).json({ ok: false, message: error.message || 'Internal server error' });
     }
 }

@@ -4,7 +4,6 @@ import { UserI } from '../shared/types/user.type.js';
 const UserSchema = new Schema<UserI>(
     {
         name: { type: String, required: true, trim: true },
-        last_name: { type: String, required: true, trim: true },
         username: { type: String, required: true, trim: true },
         email: { type: String, required: true, trim: true, unique: true },
         password: { type: String, required: true, trim: true },
