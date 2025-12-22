@@ -28,7 +28,7 @@ authRouter.post('/logout', logoutController);
 
 //* password controllers routes
 authRouter.post('/forgotPassword', forgotPasswordMiddlewares, forgotPassword);
-authRouter.post('/verifyPassToken', verifyPassTokenMiddlewares, verifyPassTokenController);
+authRouter.post('/verifyPassCode', verifyPassTokenMiddlewares, verifyPassTokenController);
 authRouter.post('/resetPassword', resetPasswordMiddlewares, resetPassword);
 
 export default authRouter;
