@@ -23,7 +23,6 @@ export async function registerController(req: Request, res: Response) {
 
         newUser.verificationOTPCode = OTPCode;
         newUser.verificationOTPCodeExpirationTime = new Date(Date.now() + 10 * 60 * 1000);
-        const createdUser = await newUser.save();
 
         const { success, message } = await sendEmail({
             OTPCode,
@@ -31,7 +30,10 @@ export async function registerController(req: Request, res: Response) {
             subject: 'Verify account code',
             html,
         });
+
         if (!success) throw new HttpError(500, message as string);
+
+        const createdUser = await newUser.save();
 
         res.json({ ok: true, message: 'User was created successful', data: getUserWithoutPass(createdUser) });
     } catch (err) {

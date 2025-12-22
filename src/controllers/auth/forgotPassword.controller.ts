@@ -17,7 +17,6 @@ export async function forgotPassword(req: Request, res: Response) {
         const OTPCode = generateOTPCode();
         user.resetPasswordOTPCode = OTPCode;
         user.resetPasswordOTPCodeExpirationTime = new Date(Date.now() + 10 * 60 * 1000);
-        await user.save();
 
         const emailTemplatePath = path.join(__dirname, '../../email_templates/ResetYourPassword.html');
         const resetPasswordEmailTemplate = fs.readFileSync(emailTemplatePath, 'utf-8');
@@ -31,6 +30,7 @@ export async function forgotPassword(req: Request, res: Response) {
         });
 
         if (!success) throw new HttpError(500, message as string);
+        await user.save();
 
         res.json({ ok: true, message: 'Verification code was send, please check your email' });
     } catch (err) {
