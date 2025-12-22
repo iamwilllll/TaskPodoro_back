@@ -3,6 +3,7 @@ import 'dotenv/config';
 const config = {
     environment: process.env.NODE_ENV || 'development',
     salt: process.env.SALT || 25,
+    baseUrl: process.env.BASE_URL || '',
 
     server: {
         PORT: process.env.SERVER_PORT || 3000,
