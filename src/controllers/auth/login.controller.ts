@@ -11,7 +11,7 @@ export async function loginController(req: Request, res: Response) {
         const { email, password } = req.body;
         const user = await UserModel.findOne({ email });
         if (!user) throw new HttpError(409, 'Incorrect credentials');
-        if (!user.isVerified) throw new HttpError(401, "The user doesn't verified, please check your email");
+        if (!user.isVerified) throw new HttpError(403, "The user doesn't verified, please check your email");
 
         const areTheSame = await comparePasswords({ plainTextPassword: password, hashPassword: user.password });
         if (!areTheSame) throw new HttpError(401, 'Incorrect credentials');
