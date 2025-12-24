@@ -5,7 +5,6 @@ import UserModel from '../../models/user.model.js';
 export async function verifyUserController(req: Request, res: Response) {
     try {
         const { email, code } = req.body;
-
         const user = await UserModel.findOne({ email });
         if (!user) throw new HttpError(404, "User doesn't exist");
 
