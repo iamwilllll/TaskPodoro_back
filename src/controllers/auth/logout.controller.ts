@@ -7,9 +7,11 @@ export async function logoutController(req: Request, res: Response) {
             httpOnly: true,
             secure: true,
         });
+
         res.json({ ok: true, message: 'User logout successful' });
     } catch (err) {
         const error = err as HttpError;
+
         res.status(error.statusCode).json({
             ok: false,
             error: { message: error.message || 'Internal server error' },

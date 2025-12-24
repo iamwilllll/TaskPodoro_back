@@ -14,5 +14,6 @@ export function handleInputErrors(req: Request, res: Response, next: NextFunctio
             },
         });
     }
+
     next();
 }
