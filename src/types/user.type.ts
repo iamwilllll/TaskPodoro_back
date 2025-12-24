@@ -1,13 +1,5 @@
 import { Types } from 'mongoose';
 
-export type RegisterUserDTO = {
-    name: string;
-    username: string;
-    email: string;
-    password: string;
-    repeat_password: string;
-};
-
 export interface UserI extends Document {
     name: string;
     username: string;

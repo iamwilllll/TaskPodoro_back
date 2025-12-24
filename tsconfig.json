@@ -11,9 +11,6 @@
         "strict": true,
         "isolatedModules": true,
         "moduleDetection": "force",
-        "skipLibCheck": true,
-        "paths": {
-            "@shared/*": ["./src/shared/types"]
-        }
+        "skipLibCheck": true
     }
 }
