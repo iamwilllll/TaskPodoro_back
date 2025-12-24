@@ -1,21 +1,21 @@
 import { Router } from 'express';
 import {
-    forgotPasswordMiddlewares,
-    loginMiddlewares,
     registerMiddlewares,
     verifyUserMiddlewares,
+    forgotPasswordMiddlewares,
+    loginMiddlewares,
     verifyPassTokenMiddlewares,
     resetPasswordMiddlewares,
 } from '../middlewares/index.js';
 
 import {
+    registerController,
+    verifyUserController,
     forgotPassword,
     loginController,
     logoutController,
-    registerController,
     resetPassword,
     verifyPassTokenController,
-    verifyUserController,
 } from '../controllers/index.js';
 
 const authRouter: Router = Router();
