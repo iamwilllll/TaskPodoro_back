@@ -1,6 +1,18 @@
-import mongoose, { Schema, Types } from 'mongoose';
+import mongoose, { Document, Schema, Types } from 'mongoose';
 
-import { TaskI, TaskStatus } from '../shared/types/task.type.js';
+enum TaskStatus {
+    PENDING = 'pending',
+    IN_PROGRESS = 'in_progress',
+    COMPLETED = 'completed',
+}
+
+interface TaskI extends Document {
+    name: string;
+    description?: string;
+    notes: Types.ObjectId[];
+    status: TaskStatus;
+    group: Types.ObjectId;
+}
 
 const TaskSchema = new Schema<TaskI>(
     {

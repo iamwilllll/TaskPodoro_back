@@ -1,5 +1,12 @@
 import mongoose, { Schema, Types } from 'mongoose';
-import { GroupI } from '../shared/types/group.type.js';
+
+interface GroupI extends Document {
+    name: string;
+    description: string;
+    image: string;
+    tasks: Types.ObjectId[];
+    user: Types.ObjectId;
+}
 
 const GroupSchema = new Schema<GroupI>(
     {

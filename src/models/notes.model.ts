@@ -1,5 +1,10 @@
-import mongoose, { Schema, Types } from 'mongoose';
-import { NotesI } from '../shared/types/notes.type.js';
+import mongoose, { Document, Schema, Types } from 'mongoose';
+
+export interface NotesI extends Document {
+    name: string;
+    description: string;
+    task: Types.ObjectId;
+}
 
 const NotesSchema = new Schema<NotesI>(
     {
