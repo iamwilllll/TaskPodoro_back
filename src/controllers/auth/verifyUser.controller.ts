@@ -16,7 +16,10 @@ export async function verifyUserController(req: Request, res: Response) {
         user.verificationOTPCode = '';
         await user.save();
 
-        res.json({ ok: true, message: 'User was verified successful' });
+        res.json({
+            ok: true,
+            message: 'User was verified successful',
+        });
     } catch (err) {
         const error = err as HttpError;
 

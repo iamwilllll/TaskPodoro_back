@@ -30,10 +30,12 @@ export async function registerController(req: Request, res: Response) {
         });
 
         if (!success) throw new HttpError(500, message as string);
-
         const createdUser = await newUser.save();
-
-        res.json({ ok: true, message: 'User was created successful', data: getUserWithoutPass(createdUser) });
+        res.json({
+            ok: true,
+            message: 'User was created successful',
+            data: getUserWithoutPass(createdUser),
+        });
     } catch (err) {
         const error = err as HttpError;
 

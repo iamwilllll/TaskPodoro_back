@@ -28,7 +28,11 @@ export async function loginController(req: Request, res: Response) {
             sameSite: config.environment === 'production' ? 'none' : 'lax',
         });
 
-        res.json({ ok: true, message: 'User was verified successful', data: userWithoutPass });
+        res.json({
+            ok: true,
+            message: 'User was verified successful',
+            data: userWithoutPass,
+        });
     } catch (err) {
         const error = err as HttpError;
 
