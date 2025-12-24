@@ -5,7 +5,7 @@ type comparePasswordsProps = {
     hashPassword: string;
 };
 
-export default async function comparePasswords({ plainTextPassword, hashPassword }: comparePasswordsProps): Promise<boolean> {
+export async function comparePasswords({ plainTextPassword, hashPassword }: comparePasswordsProps): Promise<boolean> {
     const result = await bcrypt.compare(plainTextPassword, hashPassword);
 
     return result;

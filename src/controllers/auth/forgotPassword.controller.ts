@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { HttpError } from '../../errors/HttpError.js';
 import UserModel from '../../models/user.model.js';
-import generateOTPCode from '../../utils/generateOTPCode.js';
+import { generateOTPCode } from '../../utils/index.js';
 import sendEmail from '../../services/sendEmail.service.js';
 import fs from 'node:fs';
 import path from 'node:path';

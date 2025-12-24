@@ -1,12 +1,10 @@
 import { Request, Response } from 'express';
 import UserModel from '../../models/user.model.js';
-import generateOTPCode from '../../utils/generateOTPCode.js';
+import { generateOTPCode, hashPassword, getUserWithoutPass } from '../../utils/index.js';
 import sendEmail from '../../services/sendEmail.service.js';
-import hashPassword from '../../utils/hashPassword.js';
+import { HttpError } from '../../errors/HttpError.js';
 import path from 'node:path';
 import fs from 'node:fs';
-import { HttpError } from '../../errors/HttpError.js';
-import getUserWithoutPass from '../../utils/getUserWithoutPass.js';
 
 export async function registerController(req: Request, res: Response) {
     try {

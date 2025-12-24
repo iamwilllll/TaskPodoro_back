@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
 import { HttpError } from '../../errors/HttpError.js';
 import UserModel from '../../models/user.model.js';
-import getUserWithoutPass from '../../utils/getUserWithoutPass.js';
-import comparePasswords from '../../utils/comparePasswords.js';
+import { getUserWithoutPass, comparePasswords } from '../../utils/index.js';
 import jwt from 'jsonwebtoken';
 import config from '../../config/config.js';
 

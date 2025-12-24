@@ -5,7 +5,7 @@ type HashPasswordProps = {
     password: string;
 };
 
-export default async function hashPassword({ password }: HashPasswordProps): Promise<string> {
+export async function hashPassword({ password }: HashPasswordProps): Promise<string> {
     const saltRounds = config.salt;
     const salt = await bcrypt.genSalt(+saltRounds);
     const hash = await bcrypt.hash(password, salt);
