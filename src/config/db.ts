@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import config from './config.js';
 import colors from 'colors';
+import config from '@/config/config.js';
 
 const databaseUrl = config.database.URL;
 

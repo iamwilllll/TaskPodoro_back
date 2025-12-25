@@ -6,7 +6,7 @@ import {
     loginMiddlewares,
     verifyPassTokenMiddlewares,
     resetPasswordMiddlewares,
-} from '../middlewares/index.js';
+} from '@/middlewares/index.js';
 
 import {
     registerController,
@@ -16,7 +16,7 @@ import {
     logoutController,
     resetPassword,
     verifyPassTokenController,
-} from '../controllers/index.js';
+} from '@/controllers/index.js';
 
 const authRouter: Router = Router();
 

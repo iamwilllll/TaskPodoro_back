@@ -6,8 +6,8 @@ import {
     getUserController,
     getAllGroupsController,
     getGroupByIdController,
-} from '../controllers/user/index.js';
-import { createGroupMiddleware, verifyToken } from '../middlewares/index.js';
+} from '@/controllers/user/index.js';
+import { createGroupMiddleware, verifyToken } from '@/middlewares/index.js';
 
 const upload = multer({ storage: multer.memoryStorage() });
 const userRoutes: Router = Router();

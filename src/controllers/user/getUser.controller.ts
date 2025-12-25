@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import UserModel from '../../models/user.model.js';
-import { HttpError } from '../../errors/HttpError.js';
-import { getUserWithoutPass } from '../../utils/index.js';
+import UserModel from '@/models/user.model.js';
+import { HttpError } from '@/errors/HttpError.js';
+import { getUserWithoutPass } from '@/utils/index.js';
 
 export async function getUserController(req: Request, res: Response) {
     try {

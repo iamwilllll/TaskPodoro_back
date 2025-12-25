@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { HttpError } from '../../errors/HttpError.js';
-import UserModel from '../../models/user.model.js';
-import { hashPassword, getUserWithoutPass } from '../../utils/index.js';
+import { HttpError } from '@/errors/HttpError.js';
+import UserModel from '@/models/user.model.js';
+import { hashPassword, getUserWithoutPass } from '@/utils/index.js';
 
 export async function resetPassword(req: Request, res: Response) {
     try {

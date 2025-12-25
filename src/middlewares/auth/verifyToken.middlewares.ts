@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import config from '../../config/config.js';
-import { HttpError } from '../../errors/HttpError.js';
+import config from '@/config/config.js';
+import { HttpError } from '@/errors/HttpError.js';
 interface TokenPayload extends jwt.JwtPayload {
     id: string;
 }

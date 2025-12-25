@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { HttpError } from '../../errors/HttpError.js';
-import UserModel from '../../models/user.model.js';
-import { getUserWithoutPass, comparePasswords } from '../../utils/index.js';
 import jwt from 'jsonwebtoken';
-import config from '../../config/config.js';
+import { HttpError } from '@/errors/HttpError.js';
+import UserModel from '@/models/user.model.js';
+import { getUserWithoutPass, comparePasswords } from '@/utils/index.js';
+import config from '@/config/config.js';
 
 export async function loginController(req: Request, res: Response) {
     try {

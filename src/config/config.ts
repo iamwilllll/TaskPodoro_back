@@ -1,3 +1,4 @@
+import { CorsOptions } from 'cors';
 import 'dotenv/config';
 
 const config = {
@@ -30,6 +31,18 @@ const config = {
         API_KEY: process.env.CLOUDINARY_KEY || '',
         API_SECRET: process.env.CLOUDINARY_SECRET || '',
     },
+};
+
+const whitelist: string[] = [config.baseUrl];
+export const corsConfiguration: CorsOptions = {
+    origin: (origin, callback) => {
+        if (!origin || whitelist.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
 };
 
 export default config;

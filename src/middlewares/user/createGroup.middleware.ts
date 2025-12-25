@@ -1,5 +1,5 @@
 import { body } from 'express-validator';
-import { handleInputErrors } from '../handleInputErrors.js';
+import { handleInputErrors } from '@/middlewares/handleInputErrors.js';
 import { NextFunction, Request, Response } from 'express';
 
 const allowed = ['image/jpeg', 'image/png', 'image/webp'];

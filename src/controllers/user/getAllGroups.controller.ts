@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { HttpError } from '../../errors/HttpError.js';
-import GroupModel from '../../models/group.model.js';
+import { HttpError } from '@/errors/HttpError.js';
+import GroupModel from '@/models/group.model.js';
 
 export async function getAllGroupsController(req: Request, res: Response) {
     try {

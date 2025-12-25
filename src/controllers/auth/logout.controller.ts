@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { HttpError } from '../../errors/HttpError.js';
+import { HttpError } from '@/errors/HttpError.js';
 
 export async function logoutController(req: Request, res: Response) {
     try {

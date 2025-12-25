@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import UserModel from '../../models/user.model.js';
-import { generateOTPCode, hashPassword, getUserWithoutPass } from '../../utils/index.js';
-import sendEmail from '../../services/sendEmail.service.js';
-import { HttpError } from '../../errors/HttpError.js';
+import UserModel from '@/models/user.model.js';
+import { generateOTPCode, hashPassword, getUserWithoutPass } from '@/utils/index.js';
+import sendEmail from '@/services/sendEmail.service.js';
+import { HttpError } from '@/errors/HttpError.js';
 import path from 'node:path';
 import fs from 'node:fs';
 
@@ -15,7 +15,7 @@ export async function registerController(req: Request, res: Response) {
         const OTPCode = generateOTPCode();
 
         const __dirname = import.meta.dirname;
-        const emailTemplatePath = path.join(__dirname, '../../email_templates/VerifyAccount.html');
+        const emailTemplatePath = path.join(__dirname, '@/email_templates/VerifyAccount.html');
         const verifyAccountEmailTemplate = fs.readFileSync(emailTemplatePath, 'utf-8');
         const html = verifyAccountEmailTemplate.replace('*verificationCode*', OTPCode);
 

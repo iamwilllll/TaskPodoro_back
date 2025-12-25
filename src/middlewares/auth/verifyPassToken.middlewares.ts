@@ -1,5 +1,5 @@
 import { body } from 'express-validator';
-import { handleInputErrors } from '../handleInputErrors.js';
+import { handleInputErrors } from '@/middlewares/handleInputErrors.js';
 
 export const verifyPassTokenMiddlewares = [
     body('email').notEmpty().withMessage('Email is required').isEmail().withMessage('Email is invalid '),

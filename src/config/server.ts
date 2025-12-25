@@ -1,5 +1,5 @@
 import express, { type Express } from 'express';
-import config from './config.js';
+import config from '@/config/config.js';
 import colors from 'colors';
 
 export default class Server {
