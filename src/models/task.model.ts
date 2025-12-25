@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema, Types } from 'mongoose';
 
-enum TaskStatus {
+ enum TaskStatus {
     PENDING = 'pending',
     IN_PROGRESS = 'in_progress',
     COMPLETED = 'completed',
@@ -8,7 +8,7 @@ enum TaskStatus {
 
 interface TaskI extends Document {
     name: string;
-    description?: string;
+    description: string;
     notes: Types.ObjectId[];
     status: TaskStatus;
     group: Types.ObjectId;
@@ -16,10 +16,10 @@ interface TaskI extends Document {
 
 const TaskSchema = new Schema<TaskI>(
     {
-        group: { type: Types.ObjectId, required: true },
         name: { type: String, required: true, trim: true },
         description: { type: String, required: false, trim: true },
-        status: { type: String, enum: Object.values(TaskStatus), default: TaskStatus.PENDING },
+        status: { type: String, enum: Object.values(TaskStatus), default: TaskStatus.PENDING, required:false },
+        group: { type: Types.ObjectId, required: true },
         notes: [{ type: Types.ObjectId, ref: 'Notes', required: false }],
     },
     {
