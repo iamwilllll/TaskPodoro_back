@@ -9,7 +9,7 @@
         "format": "prettier --write .",
         "lint": "eslint . --ext .ts",
         "build": "tsc",
-        "deploy": "pnpm run deploy&& pnpm run dev"
+        "deploy": "pnpm run deploy && pnpm run dev"
     },
     "keywords": [],
     "author": "Wilfryn Viloria Rosario",
