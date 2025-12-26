@@ -16,7 +16,7 @@ export async function forgotPassword(req: Request, res: Response) {
         user.resetPasswordOTPCode = OTPCode;
         user.resetPasswordOTPCodeExpirationTime = new Date(Date.now() + 10 * 60 * 1000);
 
-        const resetPasswordEmailTemplate = fs.readFileSync('../../email_templates/ResetYourPassword.html', 'utf-8');
+        const resetPasswordEmailTemplate = fs.readFileSync('./../../email_templates/ResetYourPassword.html', 'utf-8');
         const html = resetPasswordEmailTemplate.replace('*resetCode*', OTPCode);
 
         const { success, message } = await sendEmail({

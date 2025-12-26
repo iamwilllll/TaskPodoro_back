@@ -13,7 +13,7 @@ export async function registerController(req: Request, res: Response) {
         const newUser = new UserModel({ ...req.body, password: await hashPassword({ password: req.body.password }) });
         const OTPCode = generateOTPCode();
 
-        const verifyAccountEmailTemplate = fs.readFileSync('../../email_templatesVerifyAccount.html/', 'utf-8');
+        const verifyAccountEmailTemplate = fs.readFileSync('./../../email_templates/VerifyAccount.html', 'utf-8');
         const html = verifyAccountEmailTemplate.replace('*verificationCode*', OTPCode);
 
         newUser.verificationOTPCode = OTPCode;
