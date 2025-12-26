@@ -15,7 +15,7 @@ export async function registerController(req: Request, res: Response) {
         const OTPCode = generateOTPCode();
 
         const __dirname = import.meta.dirname;
-        const emailTemplatePath = path.join(__dirname, '@/email_templates/VerifyAccount.html');
+        const emailTemplatePath = path.join(__dirname, '../../email_templatesVerifyAccount.html/');
         const verifyAccountEmailTemplate = fs.readFileSync(emailTemplatePath, 'utf-8');
         const html = verifyAccountEmailTemplate.replace('*verificationCode*', OTPCode);
 
